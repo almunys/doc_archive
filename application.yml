@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+spring:
+  datasource:
+    url: jdbc:mariadb://localhost:3306/docstore
+    username: docstore
+    password: docstore
+  jpa:
+    hibernate:
+      ddl-auto: validate
+    open-in-view: false
+    properties:
+      hibernate:
+        format_sql: true
+  flyway:
+    enabled: true
+
+app:
+  jwt:
+    issuer: docstore
+    # base64 for 32+ bytes. Dev default; override in production.
+    secret: "aW4tZGV2LXBsZWFzZS1vdmVycmlkZS10aGlzLXNlY3JldC0zMmItbWlu"
+    accessTokenMinutes: 60
+
